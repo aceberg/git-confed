@@ -14,6 +14,7 @@ type Conf struct {
 // Repo - git repository
 type Repo struct {
 	Folder string
+	Color  string
 	Name   string
 	Path   string
 	Branch string

@@ -13,46 +13,30 @@
             </div>
             <div class="col"></div>
         </div>
-        <!-- <table class="table table-striped">
-            <tr>
-                <th style="width: 1%;"></th>
-                <th style="width: 20%;">Name</th>
-                <th>Path</th>
-                <th style="width: 5%;">Pull</th>
-                <th style="width: 5%;">Push</th>
-                <th style="width: 10%;">Timeout</th>
-                <th style="width: 1%;"></th>
-            </tr>
-            {{ range .Repos }}
-            <tr>
-                <td>
-                    <a href="/edit?id={{ .ID }}">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="bi bi-pencil"></i>
-                        </button>
-                    </a>
-                </td>
-            <form action="/update_repo/" method="post">
-                <input name="id" type="hidden" value="{{ .ID }}">
-                <input name="addpush" type="hidden" value="{{ .AddPush }}">
-                <td><input name="name" type="text" class="form-control" value="{{ .Name }}"></td>
-                <td><input name="path" type="text" class="form-control" value="{{ .Path }}"></td>
-                {{ if eq .Pull "yes" }}
-                    <td><input name="pull" value="{{ .Pull }}" class="form-check-input" type="checkbox" checked></td>
-                {{ else }}
-                    <td><input name="pull" value="yes" class="form-check-input" type="checkbox"></td>
+        <br>
+        <div class="row">
+            <table class="table table-striped">
+                <tr>
+                    <th style="width: 1%;">Folder</th>
+                    <th style="width: 5%;">Name</th>
+                    <th>Path</th>
+                    <th style="width: 5%;">Branch</th>
+                    <th style="width: 5%;">User</th>
+                    <th style="width: 5%;">Remote</th>
+                </tr>
+                {{ range .Repos }}
+                <tr>
+                    <td style="color: #{{ .Color }};">
+                        <i class="bi bi-folder-fill"></i></td>
+                    <td>{{ .Name }}</td>
+                    <td>{{ .Path }}</td>
+                    <td>{{ .Branch }}</td>
+                    <td>{{ .User }}</td>
+                    <td>{{ .Remote }}</td>
+                </tr>
                 {{ end }}
-                {{ if eq .Push "yes" }}
-                    <td><input name="push" value="{{ .Push }}" class="form-check-input" type="checkbox" checked></td>
-                {{ else }}
-                    <td><input name="push" value="yes" class="form-check-input" type="checkbox"></td>
-                {{ end }}
-                <td><input name="timeout" type="text" class="form-control" value="{{ .Timeout }}"></td>
-                <td><button type="submit" class="btn btn-primary">Ok</button></td>
-            </form>
-            </tr>
-            {{ end }}
-        </table> -->
+            </table>
+        </div>
     </div>
 
 {{ template "footer" }}

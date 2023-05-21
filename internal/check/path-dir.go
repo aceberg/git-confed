@@ -30,3 +30,22 @@ func IsDir(path string) bool {
 
 	return info.IsDir()
 }
+
+// ListDir - get list of directories
+func ListDir(path string) []string {
+	var list []string
+
+	f, err := os.Open(path)
+	IfError(err)
+
+	files, err := f.Readdir(0)
+	IfError(err)
+
+	for _, v := range files {
+		if v.IsDir() {
+			list = append(list, path+"/"+v.Name())
+		}
+	}
+
+	return list
+}

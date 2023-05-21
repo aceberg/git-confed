@@ -10,7 +10,7 @@ var (
 	// AppConfig - config for Web Gui
 	AppConfig models.Conf
 	// AllRepos - all repositories
-	// AllRepos []models.Repo
+	AllRepos []models.Repo
 )
 
 // // TemplHTML - html templates
