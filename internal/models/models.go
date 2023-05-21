@@ -7,23 +7,23 @@ type Conf struct {
 	Theme    string
 	Icon     string
 	ConfPath string
+	YamlPath string
+	Folders  []string
 }
 
 // Repo - git repository
 type Repo struct {
-	ID      int    `yaml:"id"`
-	Name    string `yaml:"name"`
-	Path    string `yaml:"path"`
-	Timeout string `yaml:"timeout"`
-	Pull    string `yaml:"pull"`
-	Push    string `yaml:"push"`
-	AddPush string `yaml:"addpush"`
+	Folder string
+	Name   string
+	Path   string
+	Branch string
+	User   string
+	Remote string
 }
 
 // GuiData - web gui data
 type GuiData struct {
 	Config Conf
-	Icon   string
 	Repos  []Repo
 	Themes []string
 }

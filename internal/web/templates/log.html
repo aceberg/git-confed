@@ -1,0 +1,29 @@
+{{ define "log" }}
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col">
+                <a href="/log?mode=all">
+                    <button type="submit" class="btn btn-primary">All</button>
+                </a>
+            </div>
+            <div class="col">
+                <a href="/log?mode=error">
+                    <button type="submit" class="btn btn-primary">Error</button>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <samp>
+            {{ range .Themes }}
+                <br>{{ . }}
+            {{ end }}
+            </samp>
+        </div>
+    <br>
+    </div>
+        
+
+{{ template "footer" }}
+{{ end }}
