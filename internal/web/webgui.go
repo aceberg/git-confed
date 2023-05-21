@@ -23,6 +23,7 @@ func Gui(confPath string) {
 	log.Println("=================================== ")
 
 	http.HandleFunc("/", indexHandler)
+	http.HandleFunc("/add_folder/", addFolderHandler)
 	// http.HandleFunc("/config/", configHandler)
 	err := http.ListenAndServe(address, nil)
 	check.IfError(err)

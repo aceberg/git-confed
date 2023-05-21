@@ -10,6 +10,7 @@ import (
 // Get - read config from file or env
 func Get(path string) models.Conf {
 	var config models.Conf
+	var folders []string
 
 	viper.SetDefault("HOST", "0.0.0.0")
 	viper.SetDefault("PORT", "8848")
@@ -26,18 +27,23 @@ func Get(path string) models.Conf {
 	config.Port, _ = viper.Get("PORT").(string)
 	config.Theme, _ = viper.Get("THEME").(string)
 
+	err = viper.UnmarshalKey("folders", &folders)
+	check.IfError(err)
+	config.Folders = folders
+
 	return config
 }
 
 // Write - write config to file
-func Write(path string, config models.Conf) {
+func Write(config models.Conf) {
 
-	viper.SetConfigFile(path)
+	viper.SetConfigFile(config.ConfPath)
 	viper.SetConfigType("yaml")
 
 	viper.Set("host", config.Host)
 	viper.Set("port", config.Port)
 	viper.Set("theme", config.Theme)
+	viper.Set("folders", config.Folders)
 
 	err := viper.WriteConfig()
 	check.IfError(err)

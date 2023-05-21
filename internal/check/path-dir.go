@@ -21,3 +21,12 @@ func Path(path string) {
 		IfError(err)
 	}
 }
+
+// IsDir - check if path is a directory
+func IsDir(path string) bool {
+
+	info, err := os.Stat(path)
+	IfError(err)
+
+	return info.IsDir()
+}
