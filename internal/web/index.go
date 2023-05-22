@@ -3,7 +3,7 @@ package web
 import (
 	"crypto/md5"
 	"fmt"
-	"log"
+	// "log"
 	"net/http"
 
 	"github.com/aceberg/git-confed/internal/check"
@@ -18,6 +18,7 @@ func addNewRepo(folder, path string) {
 	oneRepo.Folder = folder
 	oneRepo.Color = fmt.Sprintf("%x", sum)[0:6]
 	oneRepo.Path = path
+	oneRepo.Branch, oneRepo.User, oneRepo.Remote = check.ParseConfig(path)
 
 	AllRepos = append(AllRepos, oneRepo)
 }
@@ -40,7 +41,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	log.Println("ALL REPOS =", AllRepos)
+	// log.Println("ALL REPOS =", AllRepos)
 
 	guiData.Repos = AllRepos
 

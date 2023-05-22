@@ -17,22 +17,28 @@
         <div class="row">
             <table class="table table-striped">
                 <tr>
-                    <th style="width: 1%;">Folder</th>
-                    <th style="width: 5%;">Name</th>
+                    <th style="width: 1%;"></th>
                     <th>Path</th>
-                    <th style="width: 5%;">Branch</th>
-                    <th style="width: 5%;">User</th>
-                    <th style="width: 5%;">Remote</th>
+                    <th>Branch</th>
+                    <th>User</th>
+                    <th>Remote</th>
+                    <th style="width: 1%;"></th>
                 </tr>
                 {{ range .Repos }}
                 <tr>
                     <td style="color: #{{ .Color }};">
                         <i class="bi bi-folder-fill"></i></td>
-                    <td>{{ .Name }}</td>
                     <td>{{ .Path }}</td>
                     <td>{{ .Branch }}</td>
                     <td>{{ .User }}</td>
-                    <td>{{ .Remote }}</td>
+                    <td>{{ range .Remote }}{{ . }} {{ end }}</td>
+                    <td>
+                        <a href="/edit?path={{ .Path }}">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-pencil"></i>
+                            </button>
+                        </a>
+                    </td>
                 </tr>
                 {{ end }}
             </table>

@@ -19,7 +19,7 @@ type Repo struct {
 	Path   string
 	Branch string
 	User   string
-	Remote string
+	Remote []string
 }
 
 // GuiData - web gui data
