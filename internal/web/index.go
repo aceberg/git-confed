@@ -18,7 +18,8 @@ func addNewRepo(folder, path string) {
 	oneRepo.Folder = folder
 	oneRepo.Color = fmt.Sprintf("%x", sum)[0:6]
 	oneRepo.Path = path
-	oneRepo.Branch, oneRepo.User, oneRepo.Remote = check.ParseConfig(path)
+	oneRepo.Branch = check.Branch(path)
+	_, oneRepo.User, oneRepo.Remote = check.ParseConfig(path)
 
 	AllRepos = append(AllRepos, oneRepo)
 }

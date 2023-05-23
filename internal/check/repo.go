@@ -52,3 +52,16 @@ func ParseConfig(path string) (string, string, []string) {
 
 	return branch, user, remote
 }
+
+// Branch - returns current git branch
+func Branch(path string) string {
+	var branch string
+
+	file, err := os.ReadFile(path + "/.git/HEAD")
+	IfError(err)
+
+	re, _ := regexp.Compile(`ref: refs\/heads\/`)
+	branch = re.ReplaceAllString(string(file), "")
+
+	return branch
+}
