@@ -1,0 +1,38 @@
+{{ define "blocks" }}
+
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <h5>Add code block:</h5>
+            <form action="/block_add/" method="post">
+                <input name="name" type="text" class="form-control" placeholder="Name">
+                <textarea name="code" rows="4" class="form-control" placeholder="Code"></textarea>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+        <br>
+        <div class="row">
+            <table class="table table-striped">
+                <tr>
+                    <th style="width: 5%;">Del</th>
+                    <th>Name</th>
+                    <th>Code</th>
+                </tr>
+                {{ range $key, $value := .Config.BlockMap }}
+                <tr>
+                    <td>
+                        <a href="/block_del?name={{ $key }}">
+                            <i class="bi bi-x-square"></i>
+                        </a>
+                    </td>
+                    <td>{{ $key }}</td>
+                    <td>{{ $value }}</td>
+                </tr>
+                {{ end }}
+            </table>
+        </div>
+    </div>
+        
+
+{{ template "footer" }}
+{{ end }}

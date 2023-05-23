@@ -8,12 +8,15 @@ import (
 )
 
 const confPath = "config.yaml"
+const blocksPath = "blocks.yaml"
 
 func main() {
+	blocksPtr := flag.String("b", blocksPath, "Path to blocks yaml file")
 	confPtr := flag.String("c", confPath, "Path to config yaml file")
 	flag.Parse()
 
+	check.Path(*blocksPtr)
 	check.Path(*confPtr)
 
-	web.Gui(*confPtr)
+	web.Gui(*confPtr, *blocksPtr)
 }

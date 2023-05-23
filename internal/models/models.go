@@ -9,6 +9,7 @@ type Conf struct {
 	ConfPath string
 	YamlPath string
 	Folders  []string
+	BlockMap map[string]string
 }
 
 // Repo - git repository

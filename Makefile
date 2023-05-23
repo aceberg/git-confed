@@ -9,7 +9,7 @@ mod:
 
 run:
 	cd cmd/$(PKG_NAME)/ && \
-	go run . -c /data/$(PKG_NAME)/config.yaml #-r /data/$(PKG_NAME)/repos.yaml 
+	go run . -c /data/$(PKG_NAME)/config.yaml -b /data/$(PKG_NAME)/blocks.yaml
 	
 fmt:
 	go fmt ./...
