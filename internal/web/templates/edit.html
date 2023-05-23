@@ -3,33 +3,20 @@
 <body>
     <div class="container mt-5">
         <div class="row">
-            {{ range .Repos }}
-            <h5>{{ .Name }} - {{ .Path }}</h5>
-            {{ end }}
+            <h5>{{ .Path }}</h5>
         </div>
         <div class="row">
             <div class="col">
                 <code>.git/config</code>
                 <form action="/save_file/" method="post">
-                    <input name="file" value="config" type="hidden">
-                    {{ range .Repos }}
                     <input name="path" value="{{ .Path }}" type="hidden">
-                    {{ end }}
-                    <textarea name="text" rows="15" class="form-control">{{ index .Themes 0 }}</textarea>
+                    <textarea name="text" rows="20" class="form-control">{{ index .Themes 0 }}</textarea>
                     <button type="submit" class="btn btn-primary">Save</button>
                 </form>
                 <br>
             </div>
             <div class="col">
-                <code>.gitignore</code>
-                <form action="/save_file/" method="post">
-                    <input name="file" value="ignore" type="hidden">
-                    {{ range .Repos }}
-                    <input name="path" value="{{ .Path }}" type="hidden">
-                    {{ end }}
-                    <textarea name="text" rows="15" class="form-control">{{ index .Themes 1 }}</textarea>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </form>
+                
             </div>
         </div>
     </div>

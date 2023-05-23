@@ -27,4 +27,5 @@ type GuiData struct {
 	Config Conf
 	Repos  []Repo
 	Themes []string
+	Path   string
 }

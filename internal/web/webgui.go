@@ -25,7 +25,9 @@ func Gui(confPath string) {
 	http.HandleFunc("/", indexHandler)
 	http.HandleFunc("/add_folder/", addFolderHandler)
 	http.HandleFunc("/config/", configHandler)
+	http.HandleFunc("/edit/", editHandler)
 	http.HandleFunc("/save_config/", saveConfigHandler)
+	http.HandleFunc("/save_file/", saveFileHandler)
 	err := http.ListenAndServe(address, nil)
 	check.IfError(err)
 }
