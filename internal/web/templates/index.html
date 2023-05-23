@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col">
-                <form action="/add_folder/" method="post" class="input-group">
+                <form action="/folder_add/" method="post" class="input-group">
                     <input name="path" type="text" class="form-control" placeholder="Path to folder with git repos">
                     <button type="submit" class="btn btn-primary">Add</button>
                 </form>
@@ -31,7 +31,7 @@
                     <td>{{ .Path }}</td>
                     <td>{{ .Branch }}</td>
                     <td>{{ .User }}</td>
-                    <td>{{ range .Remote }}{{ . }} {{ end }}</td>
+                    <td>{{ range .Remote }}{{ . }}<br>{{ end }}</td>
                     <td>
                         <a href="/edit?path={{ .Path }}">
                             <button type="submit" class="btn btn-primary">

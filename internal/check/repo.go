@@ -16,8 +16,8 @@ func IsRepo(path string) bool {
 }
 
 // ParseConfig - get branch, user, remotes
-func ParseConfig(path string) (string, string, []string) {
-	var text, branch, user string
+func ParseConfig(path string) (string, []string) {
+	var text, user string
 	var remote []string
 
 	file, err := os.Open(path + "/.git/config")
@@ -29,13 +29,7 @@ func ParseConfig(path string) (string, string, []string) {
 	for scanner.Scan() {
 		text = scanner.Text()
 
-		re, _ := regexp.Compile(`\[branch \"`)
-		if re.FindString(text) != "" {
-			branch = re.ReplaceAllString(text, "")
-			re, _ = regexp.Compile(`\"\]`)
-			branch = re.ReplaceAllString(branch, "")
-		}
-		re, _ = regexp.Compile(`name =`)
+		re, _ := regexp.Compile(`name =`)
 		if re.FindString(text) != "" {
 			user = re.ReplaceAllString(text, "")
 		}
@@ -50,7 +44,7 @@ func ParseConfig(path string) (string, string, []string) {
 
 	// log.Println("BRANCH =", branch, "USER =", user, "REMOTE =", remote)
 
-	return branch, user, remote
+	return user, remote
 }
 
 // Branch - returns current git branch

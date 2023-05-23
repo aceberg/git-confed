@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col">
         <table class="table">
-            <form action="/save_config/" method="post">
+            <form action="/config_save/" method="post">
                 <tr>
                     <td>Host</td>
                     <td><input name="host" type="text" class="form-control" value="{{ .Config.Host }}"></td>
@@ -33,10 +33,35 @@
         <div class="col">
             <div class="alert alert-info" role="alert">
                 <p>● After changing <b>Host</b> or <b>Port</b> you need to restart the app</p>
-                <p>● To delete repository save it with empty path</p>
-                <p>● Timeout examples: '30s' - 30 seconds, '5m' - 5 minutes, '3h' - 3 hours</p>
-              </div>
+            </div>
         </div>
+    </div>
+    <br>
+    <h5>Where to search for git repos:</h5>
+    <div class="row">
+        <form action="/folder_add/" method="post" class="input-group">
+            <input name="path" type="text" class="form-control" placeholder="Path to folder with git repos">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+    </div>
+    <br>
+    <div class="row">
+        <table class="table table-striped">
+            <tr>
+                <th style="width: 5%;">Del</th>
+                <th>Path</th>
+            </tr>
+            {{ range .Config.Folders }}
+            <tr>
+                <td>
+                    <a href="/folder_del?path={{ . }}">
+                        <i class="bi bi-x-square"></i>
+                    </a>
+                </td>
+                <td>{{ . }}</td>
+            </tr>
+            {{ end }}
+        </table>
     </div>
     </div>
         

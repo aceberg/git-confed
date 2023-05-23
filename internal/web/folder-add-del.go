@@ -22,3 +22,21 @@ func addFolderHandler(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 }
+
+func delFolderHandler(w http.ResponseWriter, r *http.Request) {
+
+	path := r.URL.Query().Get("path")
+
+	log.Println("INFO: Remove folder", path)
+	folders := []string{}
+
+	for _, oneFolder := range AppConfig.Folders {
+		if oneFolder != path {
+			folders = append(folders, oneFolder)
+		}
+	}
+	AppConfig.Folders = folders
+	conf.Write(AppConfig)
+
+	http.Redirect(w, r, r.Header.Get("Referer"), 302)
+}

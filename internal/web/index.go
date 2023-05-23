@@ -1,8 +1,6 @@
 package web
 
 import (
-	"crypto/md5"
-	"fmt"
 	// "log"
 	"net/http"
 
@@ -13,13 +11,11 @@ import (
 func addNewRepo(folder, path string) {
 	var oneRepo models.Repo
 
-	sum := md5.Sum([]byte(folder))
-
 	oneRepo.Folder = folder
-	oneRepo.Color = fmt.Sprintf("%x", sum)[0:6]
+	oneRepo.Color = check.Color(folder)
 	oneRepo.Path = path
 	oneRepo.Branch = check.Branch(path)
-	_, oneRepo.User, oneRepo.Remote = check.ParseConfig(path)
+	oneRepo.User, oneRepo.Remote = check.ParseConfig(path)
 
 	AllRepos = append(AllRepos, oneRepo)
 }

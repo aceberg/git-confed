@@ -14,7 +14,7 @@ func Get(path string) models.Conf {
 
 	viper.SetDefault("HOST", "0.0.0.0")
 	viper.SetDefault("PORT", "8848")
-	viper.SetDefault("THEME", "journal")
+	viper.SetDefault("THEME", "pulse")
 
 	viper.SetConfigFile(path)
 	viper.SetConfigType("yaml")
