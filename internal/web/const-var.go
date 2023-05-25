@@ -1,7 +1,7 @@
 package web
 
 import (
-	// "embed"
+	"embed"
 
 	"github.com/aceberg/git-confed/internal/models"
 )
@@ -13,12 +13,13 @@ var (
 	AllRepos []models.Repo
 )
 
-// // TemplHTML - html templates
-// //
-// // go:embed templates/*
-// var TemplHTML embed.FS
-// // TemplPath - path to html templates
-// const TemplPath = "templates/"
+// TemplHTML - html templates
+//
+//go:embed templates/*
+var TemplHTML embed.FS
 
 // TemplPath - path to html templates
-const TemplPath = "../../internal/web/templates/"
+const TemplPath = "templates/"
+
+// // TemplPath - path to html templates
+// const TemplPath = "../../internal/web/templates/"

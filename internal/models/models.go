@@ -10,17 +10,18 @@ type Conf struct {
 	YamlPath string
 	Folders  []string
 	BlockMap map[string]string
+	ListURL  []string
 }
 
 // Repo - git repository
 type Repo struct {
 	Folder string
 	Color  string
-	Name   string
 	Path   string
 	Branch string
 	User   string
 	Remote []string
+	URL    []string
 }
 
 // GuiData - web gui data

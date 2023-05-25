@@ -2,6 +2,7 @@ package web
 
 import (
 	"net/http"
+	"strings"
 
 	"github.com/aceberg/git-confed/internal/conf"
 	"github.com/aceberg/git-confed/internal/models"
@@ -22,6 +23,17 @@ func saveConfigHandler(w http.ResponseWriter, r *http.Request) {
 	AppConfig.Host = r.FormValue("host")
 	AppConfig.Port = r.FormValue("port")
 	AppConfig.Theme = r.FormValue("theme")
+	urls := r.FormValue("urls")
+
+	AppConfig.ListURL = strings.Split(urls, " ")
+	list := []string{}
+	for _, url := range AppConfig.ListURL {
+		if url != "" {
+			list = append(list, url)
+		}
+	}
+	AppConfig.ListURL = list
+
 	conf.Write(AppConfig)
 
 	http.Redirect(w, r, r.Header.Get("Referer"), 302)

@@ -2,9 +2,9 @@ package check
 
 import (
 	"bufio"
-	// "log"
 	"os"
 	"regexp"
+	"strings"
 )
 
 // IsRepo checks if the path is git repo
@@ -58,4 +58,20 @@ func Branch(path string) string {
 	branch = re.ReplaceAllString(string(file), "")
 
 	return branch
+}
+
+// URL - checks if string is in .git/config
+func URL(path string, urls []string) []string {
+	var found []string
+
+	file, err := os.ReadFile(path + "/.git/config")
+	IfError(err)
+
+	for _, url := range urls {
+		if strings.Contains(string(file), url) {
+			found = append(found, url)
+		}
+	}
+
+	return found
 }

@@ -22,6 +22,7 @@
                     <th>Branch</th>
                     <th>User</th>
                     <th>Remote</th>
+                    <th>URL</th>
                     <th style="width: 1%;"></th>
                 </tr>
                 {{ range .Repos }}
@@ -32,6 +33,7 @@
                     <td>{{ .Branch }}</td>
                     <td>{{ .User }}</td>
                     <td>{{ range .Remote }}{{ . }}<br>{{ end }}</td>
+                    <td>{{ range .URL }}{{ . }}<br>{{ end }}</td>
                     <td>
                         <a href="/edit?path={{ .Path }}">
                             <button type="submit" class="btn btn-primary">

@@ -16,6 +16,7 @@ func addNewRepo(folder, path string) {
 	oneRepo.Path = path
 	oneRepo.Branch = check.Branch(path)
 	oneRepo.User, oneRepo.Remote = check.ParseConfig(path)
+	oneRepo.URL = check.URL(path, AppConfig.ListURL)
 
 	AllRepos = append(AllRepos, oneRepo)
 }
