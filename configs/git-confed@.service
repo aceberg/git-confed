@@ -1,0 +1,13 @@
+[Unit]
+Description=git-confed
+Documentation=https://github.com/aceberg/git-confed
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=%i
+ExecStart=/usr/bin/git-confed -c /home/%i/.config/git-confed/config.yaml -b /home/%i/.config/git-confed/blocks.yaml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
