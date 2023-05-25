@@ -33,3 +33,19 @@ func saveFileHandler(w http.ResponseWriter, r *http.Request) {
 
 	http.Redirect(w, r, r.Header.Get("Referer"), 302)
 }
+
+func editBlockHandler(w http.ResponseWriter, r *http.Request) {
+
+	path := r.FormValue("path")
+	name := r.FormValue("blockname")
+
+	file, err := os.ReadFile(path + "/.git/config")
+	check.IfError(err)
+
+	text := string(file) + "\n" + AppConfig.BlockMap[name]
+
+	err = os.WriteFile(path+"/.git/config", []byte(text), 0644)
+	check.IfError(err)
+
+	http.Redirect(w, r, r.Header.Get("Referer"), 302)
+}

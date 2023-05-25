@@ -6,8 +6,8 @@
             <h5>{{ .Path }}</h5>
         </div>
         <div class="row">
+            <code>.git/config</code>
             <div class="col">
-                <code>.git/config</code>
                 <form action="/file_save/" method="post">
                     <input name="path" value="{{ .Path }}" type="hidden">
                     <textarea name="text" rows="20" class="form-control">{{ index .Themes 0 }}</textarea>
@@ -16,7 +16,15 @@
                 <br>
             </div>
             <div class="col">
-                
+                <form action="/edit_block/" method="post">
+                    <input name="path" value="{{ .Path }}" type="hidden">
+                    <select name="blockname" class="form-select">
+                        {{ range $key, $value := .Config.BlockMap }}
+                            <option value="{{ $key }}">{{ $key }}</option>
+                        {{ end }}
+                    </select>
+                    <button type="submit" class="btn btn-primary">Add block</button>
+                </form>
             </div>
         </div>
     </div>

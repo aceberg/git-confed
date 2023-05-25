@@ -33,6 +33,7 @@ func Gui(confPath, blocksPath string) {
 	http.HandleFunc("/config/", configHandler)          // config.go
 	http.HandleFunc("/config_save/", saveConfigHandler) // config.go
 	http.HandleFunc("/edit/", editHandler)              // edit.go
+	http.HandleFunc("/edit_block/", editBlockHandler)   // edit.go
 	http.HandleFunc("/file_save/", saveFileHandler)     // edit.go
 	http.HandleFunc("/folder_add/", addFolderHandler)   // folder.go
 	http.HandleFunc("/folder_del/", delFolderHandler)   // folder.go
