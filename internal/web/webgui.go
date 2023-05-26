@@ -35,8 +35,10 @@ func Gui(confPath, blocksPath string) {
 	http.HandleFunc("/edit/", editHandler)              // edit.go
 	http.HandleFunc("/edit_block/", editBlockHandler)   // edit.go
 	http.HandleFunc("/file_save/", saveFileHandler)     // edit.go
+	http.HandleFunc("/filter/", filterHandler)          // filter.go
 	http.HandleFunc("/folder_add/", addFolderHandler)   // folder.go
 	http.HandleFunc("/folder_del/", delFolderHandler)   // folder.go
+	http.HandleFunc("/sort/", sortHandler)              // sort.go
 	err := http.ListenAndServe(address, nil)
 	check.IfError(err)
 }

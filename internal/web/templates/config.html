@@ -68,7 +68,9 @@
                         <i class="bi bi-x-square"></i>
                     </a>
                 </td>
-                <td>{{ . }}</td>
+                <td>
+                    <a href="/filter?tag=folder&name={{ . }}">{{ . }}</a>
+                </td>
             </tr>
             {{ end }}
         </table>

@@ -18,7 +18,8 @@
             <table class="table table-striped">
                 <tr>
                     <th style="width: 1%;"></th>
-                    <th>Path</th>
+                    <th>Path &nbsp;&nbsp;<a href="/sort?tag=path-up"><i class="bi bi-caret-up"></i></a>&nbsp;&nbsp;&nbsp;<a href="/sort?tag=path-down"><i class="bi bi-caret-down"></i></a>
+                    </th>
                     <th>Branch</th>
                     <th>User</th>
                     <th>Remote</th>
@@ -28,14 +29,27 @@
                 </tr>
                 {{ range .Repos }}
                 <tr>
-                    <td style="color: #{{ .Color }};">
-                        <i class="bi bi-folder-fill"></i></td>
+                    <td>
+                        <a style="color: #{{ .Color }};" href="/filter?tag=folder&name={{ .Folder }}">
+                            <i class="bi bi-folder-fill"></i>
+                        </a>
+                    </td>
                     <td>{{ .Path }}</td>
-                    <td>{{ .Branch }}</td>
-                    <td>{{ .User }}</td>
-                    <td>{{ range .Remote }}{{ . }}<br>{{ end }}</td>
-                    <td>{{ range .URL }}{{ . }}<br>{{ end }}</td>
-                    <td>{{ range .Other }}{{ . }}<br>{{ end }}</td>
+                    <td>
+                        <a href="/filter?tag=branch&name={{ .Branch }}">{{ .Branch }}</a>
+                    </td>
+                    <td>
+                        <a href="/filter?tag=user&name={{ .User }}">{{ .User }}</a>
+                    </td>
+                    <td>
+                        {{ range .Remote }}<a href="/filter?tag=remote&name={{ . }}">{{ . }}</a><br>{{ end }}
+                    </td>
+                    <td>
+                        {{ range .URL }}<a href="/filter?tag=url&name={{ . }}">{{ . }}</a><br>{{ end }}
+                    </td>
+                    <td>
+                        {{ range .Other }}<a href="/filter?tag=other&name={{ . }}">{{ . }}</a><br>{{ end }}
+                    </td>
                     <td>
                         <a href="/edit?path={{ .Path }}">
                             <button type="submit" class="btn btn-primary">

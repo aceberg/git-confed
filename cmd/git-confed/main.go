@@ -18,5 +18,5 @@ func main() {
 	check.Path(*blocksPtr)
 	check.Path(*confPtr)
 
-	web.Gui(*confPtr, *blocksPtr)
+	web.Gui(*confPtr, *blocksPtr) // webgui.go
 }
