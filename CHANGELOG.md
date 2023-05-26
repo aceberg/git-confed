@@ -1,6 +1,10 @@
-
 # Change Log
 All notable changes to this project will be documented in this file.
+
+## [0.1.2] - 2023-05-27
+### Added
+- `Other` repo column
+- Filter and sort
 
 ## [0.1.1] - 2023-05-26
 ### Added
