@@ -28,6 +28,10 @@
                     <td><textarea name="urls" rows="2" class="form-control">{{ range .Config.ListURL }}{{ . }} {{ end }}</textarea></td>
                 </tr>
                 <tr>
+                    <td>Other</td>
+                    <td><textarea name="other" rows="2" class="form-control">{{ range .Config.Other }}{{ . }} {{ end }}</textarea></td>
+                </tr>
+                <tr>
                     <td><button type="submit" class="btn btn-primary">Save</button></td>
                     <td></td>
                 </tr>
@@ -38,6 +42,7 @@
             <div class="alert alert-info" role="alert">
                 <p>● After changing <b>Host</b> or <b>Port</b> you need to restart the app</p>
                 <p>● <b>URLs</b> should be space separated</p>
+                <p>● <b>Other</b> - search for other keywords in .git/config (space separated)</p>
             </div>
         </div>
     </div>

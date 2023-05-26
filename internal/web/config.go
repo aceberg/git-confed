@@ -24,6 +24,7 @@ func saveConfigHandler(w http.ResponseWriter, r *http.Request) {
 	AppConfig.Port = r.FormValue("port")
 	AppConfig.Theme = r.FormValue("theme")
 	urls := r.FormValue("urls")
+	other := r.FormValue("other")
 
 	AppConfig.ListURL = strings.Split(urls, " ")
 	list := []string{}
@@ -33,6 +34,15 @@ func saveConfigHandler(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 	AppConfig.ListURL = list
+
+	AppConfig.Other = strings.Split(other, " ")
+	list = []string{}
+	for _, url := range AppConfig.Other {
+		if url != "" {
+			list = append(list, url)
+		}
+	}
+	AppConfig.Other = list
 
 	conf.Write(AppConfig)
 

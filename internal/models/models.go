@@ -11,6 +11,7 @@ type Conf struct {
 	Folders  []string
 	BlockMap map[string]string
 	ListURL  []string
+	Other    []string
 }
 
 // Repo - git repository
@@ -22,6 +23,7 @@ type Repo struct {
 	User   string
 	Remote []string
 	URL    []string
+	Other  []string
 }
 
 // GuiData - web gui data
