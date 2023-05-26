@@ -11,7 +11,7 @@ Simple .git/config editor
 
 Work in progress...
 
-![screenshot](https://raw.githubusercontent.com/aceberg/git-confed/main/assets/Screenshot%202023-05-25%20at%2017-11-26%20Git%20Config%20Editor.png)     
+![screenshot](https://raw.githubusercontent.com/aceberg/git-confed/main/assets/Screenshot%202023-05-26%20at%2016-08-42%20Git%20Config%20Editor.png)     
 
 ![screenshot](https://raw.githubusercontent.com/aceberg/git-confed/main/assets/Screenshot%202023-05-25%20at%2017-17-23%20Git%20Config%20Editor.png)
 
