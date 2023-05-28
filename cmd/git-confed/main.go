@@ -7,8 +7,8 @@ import (
 	"github.com/aceberg/git-confed/internal/web"
 )
 
-const confPath = "config.yaml"
-const blocksPath = "blocks.yaml"
+const confPath = "/data/git-confed/config.yaml"
+const blocksPath = "/data/git-confed/blocks.yaml"
 
 func main() {
 	blocksPtr := flag.String("b", blocksPath, "Path to blocks yaml file")

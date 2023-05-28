@@ -106,8 +106,8 @@ urls:
 
 | Key  | Description | Default | Systemd (user) | Systemd (root) |
 | --------  | ----------- | ------- | --- | --- |
-| -b | Path to file with code blocks | ./blocks.yaml | $HOME/.config/git-confed/blocks.yaml | /etc/git-confed/blocks.yaml |
-| -c | Path to GUI config file | ./config.yaml | $HOME/.config/git-confed/config.yaml | /etc/git-confed/config.yaml |
+| -b | Path to file with code blocks | /data/git-confed/blocks.yaml | $HOME/.config/git-confed/blocks.yaml | /etc/git-confed/blocks.yaml |
+| -c | Path to GUI config file | /data/git-confed/config.yaml | $HOME/.config/git-confed/config.yaml | /etc/git-confed/config.yaml |
 
 
 ## Thanks
