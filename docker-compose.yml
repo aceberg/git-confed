@@ -1,0 +1,14 @@
+version: "3"
+services:
+  git-confed:
+    image: aceberg/git-confed
+    restart: unless-stopped
+    ports:
+    - 8848:8848
+    volumes:
+    - ~/.dockerdata/git-confed:/data/git-confed   # app data
+    - /path/to/git/repos/folder:/repos            # path to folder with several git repos or just to one repo
+    environment:
+      HOST: "0.0.0.0"                     # optional, default: 0.0.0.0
+      PORT: "8848"                        # optional, default: 8848
+      THEME: "darkly"                     # optional, default: darkly

@@ -1,4 +1,5 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/aceberg/git-confed)](https://goreportcard.com/report/github.com/aceberg/git-confed)
+[![Main-Docker](https://github.com/aceberg/git-confed/actions/workflows/main-docker.yml/badge.svg)](https://github.com/aceberg/git-confed/actions/workflows/main-docker.yml)
 [![Binary-release](https://github.com/aceberg/git-confed/actions/workflows/release.yml/badge.svg)](https://github.com/aceberg/git-confed/actions/workflows/release.yml)
 ![GitHub](https://img.shields.io/github/license/aceberg/git-confed)
 [![Maintainability](https://api.codeclimate.com/v1/badges/b326d121b6eb53713396/maintainability)](https://codeclimate.com/github/aceberg/git-confed/maintainability)
@@ -8,10 +9,11 @@
 </a>git-confed</h1>
 <br/>
 
-Overview all your git repos and edit `.git/config` with predefined blocks. For example, if you need to add `user` to some repos, just configure block with username and email and then click `Add block` in each repo.   
+Overview all your git repos and edit their `.git/config` with predefined blocks. For example, if you need to add `user` to some repos, just configure block with username and email and then click `Add block` in each repo.   
 The app is capable of detecting git repos in folder.
 
-- [Installation](https://github.com/aceberg/git-confed#installation)   
+- [Docker](https://github.com/aceberg/git-confed#docker)
+- [Other installation methods](https://github.com/aceberg/git-confed#installation)   
 - [Usage](https://github.com/aceberg/git-confed#usage)   
 - [Config](https://github.com/aceberg/git-confed#config)   
 - [Options](https://github.com/aceberg/git-confed#options)  
@@ -20,6 +22,18 @@ The app is capable of detecting git repos in folder.
 ![screenshot](https://raw.githubusercontent.com/aceberg/git-confed/main/assets/Screenshot%202023-05-26%20at%2016-08-42%20Git%20Config%20Editor.png)     
 
 ![screenshot](https://raw.githubusercontent.com/aceberg/git-confed/main/assets/Screenshot%202023-05-25%20at%2017-17-23%20Git%20Config%20Editor.png)
+
+## Docker
+Don't forget to set the correct `/path/to/git/repos/folder`!   
+You can mount as many paths, as you need.
+```sh
+docker run --name git-confed \
+-v ~/.dockerdata/git-confed:/data/git-confed \
+-v /path/to/git/repos/folder:/repos \
+-p 8848:8848 \
+aceberg/git-confed
+```
+Or use [docker-compose.yml](docker-compose.yml)
 
 ## Installation
 
