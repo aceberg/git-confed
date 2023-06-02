@@ -5,6 +5,7 @@ type Conf struct {
 	Host     string
 	Port     string
 	Theme    string
+	Color    string
 	Icon     string
 	ConfPath string
 	YamlPath string

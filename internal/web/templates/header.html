@@ -1,7 +1,7 @@
 {{ define "header"}}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="{{ .Config.Color }}">
 <head>
     <title>Git Config Editor</title>
     <meta charset="utf-8">
@@ -11,7 +11,7 @@
     <!-- Font for icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- Bootstrap and theme -->
-    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.2.0/dist/{{ .Config.Theme }}/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootswatch@5.3.0/dist/{{ .Config.Theme }}/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <nav class="navbar navbar-expand-sm navbar-dark bg-primary">

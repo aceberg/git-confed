@@ -24,6 +24,14 @@
                     </select></td>
                 </tr>
                 <tr>
+                    <td>Color Mod</td>
+                    <td><select name="color" class="form-select">
+                        <option selected>{{ .Config.Color }}</option>
+                        <option value="light">light</option>
+                        <option value="dark">dark</option>
+                    </select></td>
+                </tr>
+                <tr>
                     <td>URLs</td>
                     <td><textarea name="urls" rows="2" class="form-control">{{ range .Config.ListURL }}{{ . }} {{ end }}</textarea></td>
                 </tr>
