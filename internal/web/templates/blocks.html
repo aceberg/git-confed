@@ -4,11 +4,18 @@
     <div class="container mt-5">
         <div class="row">
             <h5>Add code block:</h5>
-            <form action="/block_add/" method="post">
-                <input name="name" type="text" class="form-control" placeholder="Name">
-                <textarea name="code" rows="4" class="form-control" placeholder="Code"></textarea>
-                <button type="submit" class="btn btn-primary">Save</button>
-            </form>
+            <div class="col-8">
+                <form action="/block_add/" method="post">
+                    <input name="name" type="text" class="form-control" placeholder="Name">
+                    <textarea name="code" rows="4" class="form-control" placeholder="Code"></textarea>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+            <div class="col-4">
+                <div class="alert alert-info" role="alert">
+                    <p>You can use variable <b>$REPONAME</b> in block code. It will be automatically replaced with the name of a repository.</p>
+                </div>
+            </div>
         </div>
         <br>
         <div class="row">

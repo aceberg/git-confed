@@ -110,6 +110,7 @@ urls:
 | host | Address for web GUI | 0.0.0.0 |
 | port | Port for web GUI | 8848 |
 | theme | Any theme name from https://bootswatch.com in lowcase | darkly |
+| color | Color mode: light or dark | light |
 | folders | Where to search for git repos | |
 | urls | Search for those in config file | bitbucket github gitlab |
 | other | Search for those in config file | |

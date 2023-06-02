@@ -1,6 +1,11 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.3] - 2023-06-02
+### Added
+- Color mode: Light or Dark
+- Variable `$REPONAME` in block
+
 ## [0.1.2] - 2023-05-27
 ### Added
 - `Other` repo column
