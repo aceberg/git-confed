@@ -36,12 +36,14 @@ func saveFileHandler(w http.ResponseWriter, r *http.Request) {
 func editBlockHandler(w http.ResponseWriter, r *http.Request) {
 
 	path := r.FormValue("path")
-	name := r.FormValue("blockname")
+	blockName := r.FormValue("blockname")
+
+	block := check.ReplaceReponame(AppConfig.BlockMap[blockName], check.Name(path))
 
 	file, err := os.ReadFile(path + "/.git/config")
 	check.IfError(err)
 
-	text := string(file) + "\n" + AppConfig.BlockMap[name]
+	text := string(file) + "\n" + block
 
 	err = os.WriteFile(path+"/.git/config", []byte(text), 0644)
 	check.IfError(err)

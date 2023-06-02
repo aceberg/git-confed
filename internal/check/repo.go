@@ -75,3 +75,12 @@ func URL(path string, urls []string) []string {
 
 	return found
 }
+
+// ReplaceReponame - replace variable $REPONAME with the name of the repo
+func ReplaceReponame(block, name string) string {
+
+	re, _ := regexp.Compile(`\$REPONAME`)
+	newBlock := re.ReplaceAllString(block, name)
+
+	return newBlock
+}

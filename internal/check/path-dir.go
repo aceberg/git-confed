@@ -49,3 +49,9 @@ func ListDir(path string) []string {
 
 	return list
 }
+
+// Name - return dir name from path
+func Name(path string) string {
+
+	return filepath.Base(path)
+}
