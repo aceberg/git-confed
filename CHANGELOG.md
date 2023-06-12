@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.4] - 2023-06-12
+### Fixed
+- Fixed crash when incorrect folder path inserted
+
 ## [0.1.3] - 2023-06-02
 ### Added
 - Color mode: Light or Dark
