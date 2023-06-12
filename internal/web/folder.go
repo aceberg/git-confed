@@ -18,6 +18,8 @@ func addFolderHandler(w http.ResponseWriter, r *http.Request) {
 		conf.Write(AppConfig)
 
 		log.Println("INFO: Folder added", folderPath)
+	} else {
+		log.Println("ERROR: incorrect folder path:", folderPath)
 	}
 
 	http.Redirect(w, r, r.Header.Get("Referer"), 302)

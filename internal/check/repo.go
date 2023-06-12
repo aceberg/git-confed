@@ -15,7 +15,7 @@ func IsRepo(path string) bool {
 	return err == nil
 }
 
-// ParseConfig - get branch, user, remotes
+// ParseConfig - get user and remotes
 func ParseConfig(path string) (string, []string) {
 	var text, user string
 	var remote []string

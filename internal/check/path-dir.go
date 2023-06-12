@@ -26,7 +26,10 @@ func Path(path string) {
 func IsDir(path string) bool {
 
 	info, err := os.Stat(path)
-	IfError(err)
+
+	if err != nil {
+		return false
+	}
 
 	return info.IsDir()
 }

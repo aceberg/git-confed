@@ -29,12 +29,14 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	AllRepos = []models.Repo{}
 
 	for _, folder := range AppConfig.Folders {
-		if check.IsRepo(folder) {
-			addNewRepo(folder, folder)
-		} else {
-			for _, subFolder := range check.ListDir(folder) {
-				if check.IsRepo(subFolder) {
-					addNewRepo(folder, subFolder)
+		if check.IsDir(folder) {
+			if check.IsRepo(folder) {
+				addNewRepo(folder, folder)
+			} else {
+				for _, subFolder := range check.ListDir(folder) {
+					if check.IsRepo(subFolder) {
+						addNewRepo(folder, subFolder)
+					}
 				}
 			}
 		}
