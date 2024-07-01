@@ -9,11 +9,12 @@ import (
 )
 
 // Gui - start web server
-func Gui(confPath, blocksPath string) {
+func Gui(confPath, blocksPath, nodePath string) {
 
 	AppConfig = conf.Get(confPath)
 	AppConfig.ConfPath = confPath
 	AppConfig.YamlPath = blocksPath
+	AppConfig.NodePath = nodePath
 	AppConfig.Icon = Icon
 	log.Println("INFO: starting web gui with config", AppConfig.ConfPath)
 

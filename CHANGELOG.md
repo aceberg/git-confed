@@ -1,6 +1,10 @@
 # Change Log
 All notable changes to this project will be documented in this file.
 
+## [0.1.5] - 2024-07-01
+### Added
+- Option to use local theme and font, instead of jsdelivr
+
 ## [0.1.4] - 2023-06-12
 ### Fixed
 - Fixed crash when incorrect folder path inserted

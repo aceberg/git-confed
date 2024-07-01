@@ -9,6 +9,7 @@ type Conf struct {
 	Icon     string
 	ConfPath string
 	YamlPath string
+	NodePath string
 	Folders  []string
 	BlockMap map[string]string
 	ListURL  []string

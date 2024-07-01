@@ -9,7 +9,7 @@ mod:
 
 run:
 	cd cmd/$(PKG_NAME)/ && \
-	go run . -c /data/$(PKG_NAME)/config.yaml -b /data/$(PKG_NAME)/blocks.yaml
+	go run . -c /data/$(PKG_NAME)/config.yaml -b /data/$(PKG_NAME)/blocks.yaml -n http://192.168.2.3:8850
 	
 fmt:
 	go fmt ./...

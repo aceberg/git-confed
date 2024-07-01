@@ -16,7 +16,8 @@ The app is capable of detecting git repos in folder.
 - [Other installation methods](https://github.com/aceberg/git-confed#installation)   
 - [Usage](https://github.com/aceberg/git-confed#usage)   
 - [Config](https://github.com/aceberg/git-confed#config)   
-- [Options](https://github.com/aceberg/git-confed#options)  
+- [Options](https://github.com/aceberg/git-confed#options) 
+- [Local network only](https://github.com/aceberg/git-confed#local-network-only)  
 - [Thanks](https://github.com/aceberg/git-confed#thanks)
 
 ![screenshot](https://raw.githubusercontent.com/aceberg/git-confed/main/assets/Screenshot%202023-05-26%20at%2016-08-42%20Git%20Config%20Editor.png)     
@@ -123,7 +124,24 @@ urls:
 | --------  | ----------- | ------- | --- | --- |
 | -b | Path to file with code blocks | /data/git-confed/blocks.yaml | $HOME/.config/git-confed/blocks.yaml | /etc/git-confed/blocks.yaml |
 | -c | Path to GUI config file | /data/git-confed/config.yaml | $HOME/.config/git-confed/config.yaml | /etc/git-confed/config.yaml |
+| -n | Path to node modules (see below) | "" | | |
 
+
+## Local network only
+By default, this app pulls themes, icons and fonts from the internet. But, in some cases, it may be useful to have an independent from global network setup. I created a separate [image](https://github.com/aceberg/my-dockerfiles/tree/main/node-bootstrap) with all necessary modules and fonts.
+Run with Docker:
+```sh
+docker run --name node-bootstrap          \
+    -p 8850:8850                          \
+    aceberg/node-bootstrap
+```
+```sh
+docker run --name git-confed \
+    -v ~/.dockerdata/git-confed:/data/git-confed \
+    -v /path/to/git/repos/folder:/repos \
+    -p 8848:8848 \
+    aceberg/git-confed -n "http://$YOUR_IP:8850"
+```
 
 ## Thanks
 - All go packages listed in [dependencies](https://github.com/aceberg/git-confed/network/dependencies)
