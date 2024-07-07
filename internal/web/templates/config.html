@@ -32,6 +32,10 @@
                     </select></td>
                 </tr>
                 <tr>
+                    <td>Node path</td>
+                    <td><input name="node" type="text" class="form-control" value="{{ .Config.NodePath }}"></td>
+                </tr>
+                <tr>
                     <td>URLs</td>
                     <td><textarea name="urls" rows="2" class="form-control">{{ range .Config.ListURL }}{{ . }} {{ end }}</textarea></td>
                 </tr>

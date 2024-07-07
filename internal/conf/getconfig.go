@@ -16,6 +16,7 @@ func Get(path string) models.Conf {
 	viper.SetDefault("PORT", "8848")
 	viper.SetDefault("THEME", "darkly")
 	viper.SetDefault("COLOR", "light")
+	viper.SetDefault("NODEPATH", "")
 	viper.SetDefault("URLS", []string{"bitbucket", "github", "gitlab"})
 
 	viper.SetConfigFile(path)
@@ -29,6 +30,7 @@ func Get(path string) models.Conf {
 	config.Port, _ = viper.Get("PORT").(string)
 	config.Theme, _ = viper.Get("THEME").(string)
 	config.Color, _ = viper.Get("COLOR").(string)
+	config.NodePath, _ = viper.Get("NODEPATH").(string)
 
 	err = viper.UnmarshalKey("folders", &folders)
 	check.IfError(err)
@@ -55,6 +57,7 @@ func Write(config models.Conf) {
 	viper.Set("port", config.Port)
 	viper.Set("theme", config.Theme)
 	viper.Set("color", config.Color)
+	viper.Set("nodepath", config.NodePath)
 	viper.Set("folders", config.Folders)
 	viper.Set("urls", config.ListURL)
 	viper.Set("other", config.Other)

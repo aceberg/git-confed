@@ -24,6 +24,7 @@ func saveConfigHandler(w http.ResponseWriter, r *http.Request) {
 	AppConfig.Port = r.FormValue("port")
 	AppConfig.Theme = r.FormValue("theme")
 	AppConfig.Color = r.FormValue("color")
+	AppConfig.NodePath = r.FormValue("node")
 	urls := r.FormValue("urls")
 	other := r.FormValue("other")
 
