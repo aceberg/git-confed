@@ -24,6 +24,16 @@ jobs:
       - name: Build .deb package
         run: build/ci/build-deb.sh ${{ env.VERSION }}
 
+      - name: push package to packagecloud.io
+        uses: computology/packagecloud-github-action@v0.8
+        with:
+##### https://packagecloud.io/docs#os_distro_version
+          PACKAGE-NAME: '*.deb'
+          PACKAGECLOUD-USERNAME: aceberg
+          PACKAGECLOUD-REPONAME: ppa
+          PACKAGECLOUD-DISTRO: any/any
+          PACKAGECLOUD-TOKEN: ${{ secrets.PACKAGECLOUD_TOKEN }}
+
       - name: Upload the artifacts
         uses: skx/github-action-publish-binaries@master
         env:
